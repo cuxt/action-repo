@@ -131,11 +131,7 @@ def check_in(username, password):
     sign_in_url = (
         f'https://api.cloud.189.cn/mkt/userSign.action?rand={rand_timestamp}&clientType=TELEANDROID&version=8.6.3'
         f'&model=SM-G930K')
-    activity_urls = [
-        'https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_SIGNIN&activityId=ACT_SIGNIN',
-        'https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_SIGNIN_PHOTOS&activityId=ACT_SIGNIN',
-        f'https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_2022_FLDFS_KJ&activityId=ACT_SIGNIN'
-    ]
+
     headers = {
         'User-Agent': 'Mozilla/5.0 (Linux; Android 5.1.1; SM-G930K Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, '
                       'like Gecko) Version/4.0 Chrome/74.0.3729.136 Mobile Safari/537.36 Ecloud/8.6.3 Android/22 '
@@ -149,15 +145,6 @@ def check_in(username, password):
     netdisk_bonus = response.json()['netdiskBonus']
 
     content = f"账号 {username}\n签到获得 {netdisk_bonus}M 空间"
-
-    for activity_url in activity_urls:
-        time.sleep(5)
-        response = session.get(activity_url, headers=headers)
-        if "errorCode" in response.text:
-            content += f"\n{response.json()['errorCode']}"
-        else:
-            description = response.json().get('prizeName', '未知奖励')
-            content += f"\n抽奖获得 {description}"
 
     send_msg(content)
 
