@@ -144,26 +144,20 @@ def check_in(username, password):
     response = session.get(sign_in_url, headers=headers)
     netdisk_bonus = response.json()['netdiskBonus']
 
-    content = f"账号 {username}\n签到获得 {netdisk_bonus}M 空间"
+    content = f"账号 {username} 签到获得 {netdisk_bonus}M 空间"
 
     send_msg(content)
 
 
 def send_msg(content):
-    url = "https://api.xbxin.com/msg/admin/corp"
-    token = env.str("TOKEN")
-
-    headers = {
-        'Authorization': f'Bearer {token}',
-    }
+    url = env.str('PUSH_URL')
 
     data = {
-        "title": "天翼云盘",
-        "desc": "签到",
+        "title": "天翼云盘签到",
         "content": content
     }
 
-    requests.post(url, json=data, headers=headers)
+    requests.post(url, json=data)
 
 
 def main():
