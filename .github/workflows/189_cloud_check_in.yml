@@ -22,5 +22,5 @@ jobs:
       - name: 'Run script'
         env:
           TY_CLOUD: ${{ secrets.TY_CLOUD }}
-          TOKEN: ${{secrets.TOKEN}}
+          PUSH_URL: ${{ secrets.PUSH_URL }}
         run: python 189/cloud_check_in.py
