@@ -28,13 +28,13 @@ def keep_alive(ctyun, user_data, retries=3, delay=10):
 
     # 创建签名字符串
     signature_str = (
-        device_type
-        + request_id
-        + tenant_id_value
-        + timestamp_value
-        + userid_value
-        + version_value
-        + secret_key_value
+            device_type
+            + request_id
+            + tenant_id_value
+            + timestamp_value
+            + userid_value
+            + version_value
+            + secret_key_value
     )
 
     # 使用MD5算法创建签名
@@ -52,7 +52,7 @@ def keep_alive(ctyun, user_data, retries=3, delay=10):
         "ctg-userid": userid_value,
         "ctg-version": version_value,
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0",
+                      "Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0",
     }
 
     # 发起POST请求连接云电脑
@@ -88,7 +88,7 @@ def sha256(password):
 def login(ctyun):
     headers = {
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0",
+                      "Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0",
     }
 
     account = ctyun["account"]
