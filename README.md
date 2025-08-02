@@ -4,4 +4,4 @@
 
 ## 🥇 感谢 ZMTO 赞助
 Thank you ZMTO for the sponsorship.
-[ZMTO](https://console.zmto.com/?affid=1582&oid=1)
+[ZMTO](https://console.zmto.com/?affid=1582)
